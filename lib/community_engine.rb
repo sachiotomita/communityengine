@@ -52,6 +52,7 @@ require 'power_enum'
 require 'acts_as_list'
 
 # Rails 4
+$:.unshift(File.dirname(__FILE__) +'/rails-observers')
 require 'rails/observers/railtie'
 require 'actionpack/action_caching'
 require 'actionpack/page_caching'

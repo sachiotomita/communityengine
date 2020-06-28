@@ -24,7 +24,7 @@ module CommunityEngine
     initializer "#{engine_name}.rails4", :after => "active_record.observer" do
       ActiveSupport.on_load(:action_controller) do
         ActionController::Base.send :include, ActionController::Caching::Pages
-        ActionController::Base.send :include, ActionController::Caching::Actions
+        ActionController::Base.send :include, ActionController::Caching::Fragments
       end
     end
 
@@ -33,7 +33,7 @@ module CommunityEngine
         ActionController::Caching::Sweeper.send(:include, ActiveSupport::Configurable)
         ActionController::Caching::Sweeper.send(:include, ActionController::Caching)
         ActionController::Caching::Sweeper.send(:include, ActionController::Caching::Pages)
-        ActionController::Caching::Sweeper.send(:include, ActionController::Caching::Actions)
+        ActionController::Caching::Sweeper.send(:include, ActionController::Caching::Fragments)
       end
     end
 
